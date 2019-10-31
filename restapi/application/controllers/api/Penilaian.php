@@ -2,17 +2,17 @@
 
 require APPPATH . '/libraries/API_Controller.php';
 
-class Mahasiswa extends API_Controller
+class Penilaian extends API_Controller
 {
     public function __construct() {
         parent::__construct();
-        $this->load->model("Mahasiswa_model", "MahasiswaModel");
+        $this->load->model("Penilaian_model", "PenilaianModel");
     }
 
-    public function GetMahasiswa()
+    public function Getpenilaian()
     {
         $id = $_GET;
-        $Output = $this->MahasiswaModel->get($id);
+        $Output = $this->PenilaianModel->get($id);
         if(!empty($Output)){
             $this->api_return(
                 [
@@ -28,10 +28,10 @@ class Mahasiswa extends API_Controller
         }
     }
 
-    public function InsertMahasiswa()
+    public function Insertpenilaian()
     {
         $data = json_decode($this->input->raw_input_stream);
-        $Output = $this->MahasiswaModel->insert($data);
+        $Output = $this->PenilaianModel->insert($data);
         if($Output){
             $this->api_return(
                 [
@@ -47,10 +47,10 @@ class Mahasiswa extends API_Controller
         }
     }
 
-    public function UpdateMahasiswa()
+    public function Updatepenilaian()
     {
         $data = json_decode($this->input->raw_input_stream);
-        $result = $this->MahasiswaModel->update($data);
+        $result = $this->penilaianModel->update($data);
         if ($result){
             $this->api_return(
                 [
@@ -68,10 +68,10 @@ class Mahasiswa extends API_Controller
 
         
 
-    public function DeleteMahasiswa()
+    public function Deletepenilaian()
     {
         $id = $_GET;
-        $result = $this->MahasiswaModel->delete($id);
+        $result = $this->penilaianModel->delete($id);
         if ($result){
             $this->api_return(
                 [
