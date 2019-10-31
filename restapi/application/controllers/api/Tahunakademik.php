@@ -2,17 +2,17 @@
 
 require APPPATH . '/libraries/API_Controller.php';
 
-class Mahasiswa extends API_Controller
+class Tahunakademik extends API_Controller
 {
     public function __construct() {
         parent::__construct();
-        $this->load->model("Mahasiswa_model", "MahasiswaModel");
+        $this->load->model("Tahunakademik_model", "TahunakademikModel");
     }
 
-    public function GetMahasiswa()
+    public function GetTahunakademik()
     {
         $id = $_GET;
-        $Output = $this->MahasiswaModel->get($id);
+        $Output = $this->TahunakademikModel->get($id);
         if(!empty($Output)){
             $this->api_return(
                 [
@@ -28,10 +28,10 @@ class Mahasiswa extends API_Controller
         }
     }
 
-    public function InsertMahasiswa()
+    public function InsertTahunakademik()
     {
         $data = json_decode($this->input->raw_input_stream);
-        $Output = $this->MahasiswaModel->insert($data);
+        $Output = $this->TahunakademikModel->insert($data);
         if($Output){
             $this->api_return(
                 [
@@ -47,10 +47,10 @@ class Mahasiswa extends API_Controller
         }
     }
 
-    public function UpdateMahasiswa()
+    public function UpdateTahunakademik()
     {
         $data = json_decode($this->input->raw_input_stream);
-        $result = $this->MahasiswaModel->update($data);
+        $result = $this->TahunakademikModel->update($data);
         if ($result){
             $this->api_return(
                 [
@@ -68,7 +68,7 @@ class Mahasiswa extends API_Controller
 
         
 
-    public function DeleteMahasiswa()
+    public function DeleteTahunakademik()
     {
         $id = $_GET;
         $result = $this->MahasiswaModel->delete($id);
